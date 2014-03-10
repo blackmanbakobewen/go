@@ -1,7 +1,7 @@
 go
 ==
 
-What is this?
+What is go?
 -------------
 
 The go command can help manage remote servers SSH access in same way, and do not need to remember so many accounts for those servers.
