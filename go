@@ -13,7 +13,7 @@ GET_CHAR()
 
 GO_HOME=~
 if [ -z $1 ];then
-  echo -n "请输入要登陆的机器IP/域名： "
+  echo -n "Please input the server IP or Label： "
   read target
 else
   target=$1
@@ -29,7 +29,7 @@ passwd=`grep "$target" $AUTHFILE | awk '{print $2}' | awk -F ':' '{print $2}'`
 user=`grep "$target" $AUTHFILE | awk '{print $2}' | awk -F ':' '{print $1}'`
 label=`grep "$target" $AUTHFILE | awk '{print $3}'`
 if [ $count -gt 1 ];then
-  echo -e '查找到以下主机 (\033[0;31m选择一个\033[0m)'
+  echo -e 'Found follow servers: (\033[0;31mWhich one do you want to connect?\033[0m)'
   arrtarget=($targetfullname)
   arruser=($user)
   arrpasswd=($passwd)
@@ -40,7 +40,7 @@ if [ $count -gt 1 ];then
   do
     echo -e '[\033[4;34m'$(($i+1))'\033[0m]' "${arruser[$i]}@${arrtarget[$i]} ${arrlabel[$i]}"
   done
-  echo -n "选择序号："
+  echo -n "Please choose by ID: "
   choice=`GET_CHAR`
   echo ""
 
@@ -60,7 +60,7 @@ if [ $count -gt 1 ];then
 fi
 
 if [ -z $targetfullname ] || [ -z $passwd ] || [ -z $user ];then
-  echo "配置文件中没有查找到匹配的信息";
+  echo "No matching server~";
   exit 1;
 fi
 target=$targetfullname
@@ -84,6 +84,6 @@ if [ -z $port ]; then
   port=22
 fi
 
-echo "正在登录${user}@${target} ${label}..."
+echo "Logging into ${user}@${target} ${label}..."
 
 ssh-expect $user $target $passwd $port $extra_options
