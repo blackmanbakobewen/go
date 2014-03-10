@@ -16,7 +16,7 @@ If you feels something wrong, please [file an issue](https://github.com/vipzhich
 Usage
 -----
 
-I am just show the usage for MacOSX users, other OS usage maybe different, but the idea is same.
+I am just showing the usage for MacOSX users, other OS usage maybe different, but the idea is same.
 
 ### Check out code from Github
 
@@ -66,7 +66,7 @@ Logging into user1@192.168.1.7 ...
 spawn ssh user1@192.168.1.7 -p 22000
 user1@192.168.1.7's password:
 Last login: Mon Mar 10 18:35:02 2014 from 192.168.1.6
-
+$
 ```
 
 ### Options
